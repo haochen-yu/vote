@@ -6,7 +6,7 @@ var contract = require("truffle-contract");
 
 var MyContract = contract(contract_json);
 MyContract.setProvider(provider);
-MyContract.defaults({from: '0x5a2ea30ff2c7e87e84bf6f4c44b8d633e6f7ac91'});
+MyContract.defaults({from: '0x92a44db4cf1e53040df34a6b73797fa86009e898'});
 // Work around for a bug in truffle contract.
 if (typeof MyContract.currentProvider.sendAsync !== "function") {
   MyContract.currentProvider.sendAsync = function() {

@@ -1,5 +1,6 @@
 {
     "server_host": "HTTP://127.0.0.1:8545",
-    "network_id": "5777"
-
+    "network_id": "5777",
+    "main_private_key": "0xd551a9aae54a990b875124141b3b35e87c707b2242a422bfcadc3df1fc3b2fec",
+    "main_publick_key": "0x92a44db4cf1e53040df34a6b73797fa86009e898"
 }

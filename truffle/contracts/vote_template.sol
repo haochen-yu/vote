@@ -30,12 +30,12 @@ contract Vote is owned {
         return s;
     }
     //returns 1 if successful otherwise return -1;
-    function MakeVote(string voterId, string voterName, string decision) public constant returns(int) {
+    function MakeVote(string voterId, string voterName, string decision) public returns(int) {
         var choice = decision.StringIsInList(Choices);
         if (bytes(choice.name).length !=0) {
             choice.numVote = choice.numVote + 1;
                 //emit Voted(voterId, voterName, decision);
-                return 1;
+                return choice.numVote;
         }
         return -1;
 

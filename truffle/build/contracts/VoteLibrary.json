@@ -1,11 +1,11 @@
 {
   "contractName": "VoteLibrary",
   "abi": [],
-  "bytecode": "0x604c602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f30073000000000000000000000000000000000000000030146060604052600080fd00a165627a7a7230582079b4c9571d7e1b4c05b15f96c14bff7c3c2f5b0fa6fe0d9f3e1975f770fcb5dd0029",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146060604052600080fd00a165627a7a7230582079b4c9571d7e1b4c05b15f96c14bff7c3c2f5b0fa6fe0d9f3e1975f770fcb5dd0029",
-  "sourceMap": "69:420:2:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
-  "deployedSourceMap": "69:420:2:-;;;;;;;;",
-  "source": "pragma solidity  ^0.4.17;\nimport \"./Util/String/string_common.sol\";\n\nlibrary VoteLibrary {\n    using strings for *;\n\n    struct Choice {\n        string name;\n        int numVote;\n        \n    }\n    function StringIsInList(string  self, Choice[] list) internal pure returns(Choice) {\n        for(uint i=0; i<list.length; i++) {\n            if (list[i].name.toSlice().equals(self.toSlice())) {\n                return list[i];\n            }\n        }\n        //return (Choice(\"\",0));\n    }\n\n}",
+  "bytecode": "0x604c602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f30073000000000000000000000000000000000000000030146060604052600080fd00a165627a7a72305820497455aeeccb4cb20203456671166777b88161996faadd9d6bae204735bfdaa80029",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146060604052600080fd00a165627a7a72305820497455aeeccb4cb20203456671166777b88161996faadd9d6bae204735bfdaa80029",
+  "sourceMap": "69:431:2:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
+  "deployedSourceMap": "69:431:2:-;;;;;;;;",
+  "source": "pragma solidity  ^0.4.17;\nimport \"./Util/String/string_common.sol\";\n\nlibrary VoteLibrary {\n    using strings for *;\n\n    struct Choice {\n        string name;\n        int numVote;\n        \n    }\n    function StringIsInList(string  self, Choice[] storage list) internal returns(Choice storage) {\n        for(uint i=0; i<list.length; i++) {\n            if (list[i].name.toSlice().equals(self.toSlice())) {\n                return list[i];\n            }\n        }\n        //return (Choice(\"\",0));\n    }\n\n}",
   "sourcePath": "/home/henry/Documents/Project/vote/truffle/contracts/Common/vote_library.sol",
   "ast": {
     "absolutePath": "/home/henry/Documents/Project/vote/truffle/contracts/Common/vote_library.sol",
@@ -137,13 +137,13 @@
             "body": {
               "id": 1773,
               "nodeType": "Block",
-              "src": "281:205:2",
+              "src": "292:205:2",
               "statements": [
                 {
                   "body": {
                     "id": 1771,
                     "nodeType": "Block",
-                    "src": "325:122:2",
+                    "src": "336:122:2",
                     "statements": [
                       {
                         "condition": {
@@ -161,7 +161,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1735,
-                                  "src": "373:4:2",
+                                  "src": "384:4:2",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_string_memory_ptr",
                                     "typeString": "string memory"
@@ -175,7 +175,7 @@
                                 "memberName": "toSlice",
                                 "nodeType": "MemberAccess",
                                 "referencedDeclaration": 66,
-                                "src": "373:12:2",
+                                "src": "384:12:2",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_internal_pure$_t_string_memory_ptr_$returns$_t_struct$_slice_$6_memory_ptr_$bound_to$_t_string_memory_ptr_$",
                                   "typeString": "function (string memory) pure returns (struct strings.slice memory)"
@@ -189,7 +189,7 @@
                               "lValueRequested": false,
                               "names": [],
                               "nodeType": "FunctionCall",
-                              "src": "373:14:2",
+                              "src": "384:14:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_struct$_slice_$6_memory_ptr",
                                 "typeString": "struct strings.slice memory"
@@ -219,10 +219,10 @@
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
                                       "referencedDeclaration": 1738,
-                                      "src": "343:4:2",
+                                      "src": "354:4:2",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_array$_t_struct$_Choice_$1733_memory_$dyn_memory_ptr",
-                                        "typeString": "struct VoteLibrary.Choice memory[] memory"
+                                        "typeIdentifier": "t_array$_t_struct$_Choice_$1733_storage_$dyn_storage_ptr",
+                                        "typeString": "struct VoteLibrary.Choice storage ref[] storage pointer"
                                       }
                                     },
                                     "id": 1756,
@@ -233,7 +233,7 @@
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
                                       "referencedDeclaration": 1744,
-                                      "src": "348:1:2",
+                                      "src": "359:1:2",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint256",
                                         "typeString": "uint256"
@@ -244,10 +244,10 @@
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "nodeType": "IndexAccess",
-                                    "src": "343:7:2",
+                                    "src": "354:7:2",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_struct$_Choice_$1733_memory",
-                                      "typeString": "struct VoteLibrary.Choice memory"
+                                      "typeIdentifier": "t_struct$_Choice_$1733_storage",
+                                      "typeString": "struct VoteLibrary.Choice storage ref"
                                     }
                                   },
                                   "id": 1757,
@@ -258,10 +258,10 @@
                                   "memberName": "name",
                                   "nodeType": "MemberAccess",
                                   "referencedDeclaration": 1730,
-                                  "src": "343:12:2",
+                                  "src": "354:12:2",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_string_memory",
-                                    "typeString": "string memory"
+                                    "typeIdentifier": "t_string_storage",
+                                    "typeString": "string storage ref"
                                   }
                                 },
                                 "id": 1758,
@@ -272,7 +272,7 @@
                                 "memberName": "toSlice",
                                 "nodeType": "MemberAccess",
                                 "referencedDeclaration": 66,
-                                "src": "343:20:2",
+                                "src": "354:20:2",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_internal_pure$_t_string_memory_ptr_$returns$_t_struct$_slice_$6_memory_ptr_$bound_to$_t_string_memory_ptr_$",
                                   "typeString": "function (string memory) pure returns (struct strings.slice memory)"
@@ -286,7 +286,7 @@
                               "lValueRequested": false,
                               "names": [],
                               "nodeType": "FunctionCall",
-                              "src": "343:22:2",
+                              "src": "354:22:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_struct$_slice_$6_memory_ptr",
                                 "typeString": "struct strings.slice memory"
@@ -300,7 +300,7 @@
                             "memberName": "equals",
                             "nodeType": "MemberAccess",
                             "referencedDeclaration": 479,
-                            "src": "343:29:2",
+                            "src": "354:29:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_pure$_t_struct$_slice_$6_memory_ptr_$_t_struct$_slice_$6_memory_ptr_$returns$_t_bool_$bound_to$_t_struct$_slice_$6_memory_ptr_$",
                               "typeString": "function (struct strings.slice memory,struct strings.slice memory) pure returns (bool)"
@@ -314,7 +314,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "343:45:2",
+                          "src": "354:45:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
@@ -323,11 +323,11 @@
                         "falseBody": null,
                         "id": 1770,
                         "nodeType": "IfStatement",
-                        "src": "339:98:2",
+                        "src": "350:98:2",
                         "trueBody": {
                           "id": 1769,
                           "nodeType": "Block",
-                          "src": "390:47:2",
+                          "src": "401:47:2",
                           "statements": [
                             {
                               "expression": {
@@ -339,10 +339,10 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1738,
-                                  "src": "415:4:2",
+                                  "src": "426:4:2",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_array$_t_struct$_Choice_$1733_memory_$dyn_memory_ptr",
-                                    "typeString": "struct VoteLibrary.Choice memory[] memory"
+                                    "typeIdentifier": "t_array$_t_struct$_Choice_$1733_storage_$dyn_storage_ptr",
+                                    "typeString": "struct VoteLibrary.Choice storage ref[] storage pointer"
                                   }
                                 },
                                 "id": 1767,
@@ -353,7 +353,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1744,
-                                  "src": "420:1:2",
+                                  "src": "431:1:2",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
@@ -364,16 +364,16 @@
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "nodeType": "IndexAccess",
-                                "src": "415:7:2",
+                                "src": "426:7:2",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_Choice_$1733_memory",
-                                  "typeString": "struct VoteLibrary.Choice memory"
+                                  "typeIdentifier": "t_struct$_Choice_$1733_storage",
+                                  "typeString": "struct VoteLibrary.Choice storage ref"
                                 }
                               },
                               "functionReturnParameters": 1742,
                               "id": 1768,
                               "nodeType": "Return",
-                              "src": "408:14:2"
+                              "src": "419:14:2"
                             }
                           ]
                         }
@@ -398,7 +398,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1744,
-                      "src": "305:1:2",
+                      "src": "316:1:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -415,27 +415,27 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1738,
-                        "src": "307:4:2",
+                        "src": "318:4:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Choice_$1733_memory_$dyn_memory_ptr",
-                          "typeString": "struct VoteLibrary.Choice memory[] memory"
+                          "typeIdentifier": "t_array$_t_struct$_Choice_$1733_storage_$dyn_storage_ptr",
+                          "typeString": "struct VoteLibrary.Choice storage ref[] storage pointer"
                         }
                       },
                       "id": 1749,
                       "isConstant": false,
-                      "isLValue": false,
+                      "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "length",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "307:11:2",
+                      "src": "318:11:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "305:13:2",
+                    "src": "316:13:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -453,7 +453,7 @@
                         "name": "i",
                         "nodeType": "VariableDeclaration",
                         "scope": 1774,
-                        "src": "295:6:2",
+                        "src": "306:6:2",
                         "stateVariable": false,
                         "storageLocation": "default",
                         "typeDescriptions": {
@@ -464,7 +464,7 @@
                           "id": 1743,
                           "name": "uint",
                           "nodeType": "ElementaryTypeName",
-                          "src": "295:4:2",
+                          "src": "306:4:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -485,7 +485,7 @@
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "302:1:2",
+                      "src": "313:1:2",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
@@ -494,7 +494,7 @@
                       "value": "0"
                     },
                     "nodeType": "VariableDeclarationStatement",
-                    "src": "295:8:2"
+                    "src": "306:8:2"
                   },
                   "loopExpression": {
                     "expression": {
@@ -507,7 +507,7 @@
                       "nodeType": "UnaryOperation",
                       "operator": "++",
                       "prefix": false,
-                      "src": "320:3:2",
+                      "src": "331:3:2",
                       "subExpression": {
                         "argumentTypes": null,
                         "id": 1751,
@@ -515,7 +515,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1744,
-                        "src": "320:1:2",
+                        "src": "331:1:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -528,10 +528,10 @@
                     },
                     "id": 1753,
                     "nodeType": "ExpressionStatement",
-                    "src": "320:3:2"
+                    "src": "331:3:2"
                   },
                   "nodeType": "ForStatement",
-                  "src": "291:156:2"
+                  "src": "302:156:2"
                 }
               ]
             },
@@ -539,7 +539,7 @@
             "id": 1774,
             "implemented": true,
             "isConstructor": false,
-            "isDeclaredConst": true,
+            "isDeclaredConst": false,
             "modifiers": [],
             "name": "StringIsInList",
             "nodeType": "FunctionDefinition",
@@ -579,12 +579,12 @@
                   "name": "list",
                   "nodeType": "VariableDeclaration",
                   "scope": 1774,
-                  "src": "236:13:2",
+                  "src": "236:21:2",
                   "stateVariable": false,
-                  "storageLocation": "default",
+                  "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Choice_$1733_memory_$dyn_memory_ptr",
-                    "typeString": "struct VoteLibrary.Choice memory[] memory"
+                    "typeIdentifier": "t_array$_t_struct$_Choice_$1733_storage_$dyn_storage_ptr",
+                    "typeString": "struct VoteLibrary.Choice storage ref[] storage pointer"
                   },
                   "typeName": {
                     "baseType": {
@@ -612,7 +612,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "221:29:2"
+              "src": "221:37:2"
             },
             "payable": false,
             "returnParameters": {
@@ -625,12 +625,12 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 1774,
-                  "src": "273:6:2",
+                  "src": "276:6:2",
                   "stateVariable": false,
-                  "storageLocation": "default",
+                  "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Choice_$1733_memory_ptr",
-                    "typeString": "struct VoteLibrary.Choice memory"
+                    "typeIdentifier": "t_struct$_Choice_$1733_storage_ptr",
+                    "typeString": "struct VoteLibrary.Choice storage pointer"
                   },
                   "typeName": {
                     "contractScope": null,
@@ -638,7 +638,7 @@
                     "name": "Choice",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 1733,
-                    "src": "273:6:2",
+                    "src": "276:6:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_Choice_$1733_storage_ptr",
                       "typeString": "struct VoteLibrary.Choice storage pointer"
@@ -648,20 +648,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "272:8:2"
+              "src": "275:16:2"
             },
             "scope": 1775,
-            "src": "198:288:2",
-            "stateMutability": "pure",
+            "src": "198:299:2",
+            "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
         "scope": 1776,
-        "src": "69:420:2"
+        "src": "69:431:2"
       }
     ],
-    "src": "0:489:2"
+    "src": "0:500:2"
   },
   "legacyAST": {
     "absolutePath": "/home/henry/Documents/Project/vote/truffle/contracts/Common/vote_library.sol",
@@ -793,13 +793,13 @@
             "body": {
               "id": 1773,
               "nodeType": "Block",
-              "src": "281:205:2",
+              "src": "292:205:2",
               "statements": [
                 {
                   "body": {
                     "id": 1771,
                     "nodeType": "Block",
-                    "src": "325:122:2",
+                    "src": "336:122:2",
                     "statements": [
                       {
                         "condition": {
@@ -817,7 +817,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1735,
-                                  "src": "373:4:2",
+                                  "src": "384:4:2",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_string_memory_ptr",
                                     "typeString": "string memory"
@@ -831,7 +831,7 @@
                                 "memberName": "toSlice",
                                 "nodeType": "MemberAccess",
                                 "referencedDeclaration": 66,
-                                "src": "373:12:2",
+                                "src": "384:12:2",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_internal_pure$_t_string_memory_ptr_$returns$_t_struct$_slice_$6_memory_ptr_$bound_to$_t_string_memory_ptr_$",
                                   "typeString": "function (string memory) pure returns (struct strings.slice memory)"
@@ -845,7 +845,7 @@
                               "lValueRequested": false,
                               "names": [],
                               "nodeType": "FunctionCall",
-                              "src": "373:14:2",
+                              "src": "384:14:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_struct$_slice_$6_memory_ptr",
                                 "typeString": "struct strings.slice memory"
@@ -875,10 +875,10 @@
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
                                       "referencedDeclaration": 1738,
-                                      "src": "343:4:2",
+                                      "src": "354:4:2",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_array$_t_struct$_Choice_$1733_memory_$dyn_memory_ptr",
-                                        "typeString": "struct VoteLibrary.Choice memory[] memory"
+                                        "typeIdentifier": "t_array$_t_struct$_Choice_$1733_storage_$dyn_storage_ptr",
+                                        "typeString": "struct VoteLibrary.Choice storage ref[] storage pointer"
                                       }
                                     },
                                     "id": 1756,
@@ -889,7 +889,7 @@
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
                                       "referencedDeclaration": 1744,
-                                      "src": "348:1:2",
+                                      "src": "359:1:2",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint256",
                                         "typeString": "uint256"
@@ -900,10 +900,10 @@
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "nodeType": "IndexAccess",
-                                    "src": "343:7:2",
+                                    "src": "354:7:2",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_struct$_Choice_$1733_memory",
-                                      "typeString": "struct VoteLibrary.Choice memory"
+                                      "typeIdentifier": "t_struct$_Choice_$1733_storage",
+                                      "typeString": "struct VoteLibrary.Choice storage ref"
                                     }
                                   },
                                   "id": 1757,
@@ -914,10 +914,10 @@
                                   "memberName": "name",
                                   "nodeType": "MemberAccess",
                                   "referencedDeclaration": 1730,
-                                  "src": "343:12:2",
+                                  "src": "354:12:2",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_string_memory",
-                                    "typeString": "string memory"
+                                    "typeIdentifier": "t_string_storage",
+                                    "typeString": "string storage ref"
                                   }
                                 },
                                 "id": 1758,
@@ -928,7 +928,7 @@
                                 "memberName": "toSlice",
                                 "nodeType": "MemberAccess",
                                 "referencedDeclaration": 66,
-                                "src": "343:20:2",
+                                "src": "354:20:2",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_internal_pure$_t_string_memory_ptr_$returns$_t_struct$_slice_$6_memory_ptr_$bound_to$_t_string_memory_ptr_$",
                                   "typeString": "function (string memory) pure returns (struct strings.slice memory)"
@@ -942,7 +942,7 @@
                               "lValueRequested": false,
                               "names": [],
                               "nodeType": "FunctionCall",
-                              "src": "343:22:2",
+                              "src": "354:22:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_struct$_slice_$6_memory_ptr",
                                 "typeString": "struct strings.slice memory"
@@ -956,7 +956,7 @@
                             "memberName": "equals",
                             "nodeType": "MemberAccess",
                             "referencedDeclaration": 479,
-                            "src": "343:29:2",
+                            "src": "354:29:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_pure$_t_struct$_slice_$6_memory_ptr_$_t_struct$_slice_$6_memory_ptr_$returns$_t_bool_$bound_to$_t_struct$_slice_$6_memory_ptr_$",
                               "typeString": "function (struct strings.slice memory,struct strings.slice memory) pure returns (bool)"
@@ -970,7 +970,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "343:45:2",
+                          "src": "354:45:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
@@ -979,11 +979,11 @@
                         "falseBody": null,
                         "id": 1770,
                         "nodeType": "IfStatement",
-                        "src": "339:98:2",
+                        "src": "350:98:2",
                         "trueBody": {
                           "id": 1769,
                           "nodeType": "Block",
-                          "src": "390:47:2",
+                          "src": "401:47:2",
                           "statements": [
                             {
                               "expression": {
@@ -995,10 +995,10 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1738,
-                                  "src": "415:4:2",
+                                  "src": "426:4:2",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_array$_t_struct$_Choice_$1733_memory_$dyn_memory_ptr",
-                                    "typeString": "struct VoteLibrary.Choice memory[] memory"
+                                    "typeIdentifier": "t_array$_t_struct$_Choice_$1733_storage_$dyn_storage_ptr",
+                                    "typeString": "struct VoteLibrary.Choice storage ref[] storage pointer"
                                   }
                                 },
                                 "id": 1767,
@@ -1009,7 +1009,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1744,
-                                  "src": "420:1:2",
+                                  "src": "431:1:2",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
@@ -1020,16 +1020,16 @@
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "nodeType": "IndexAccess",
-                                "src": "415:7:2",
+                                "src": "426:7:2",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_Choice_$1733_memory",
-                                  "typeString": "struct VoteLibrary.Choice memory"
+                                  "typeIdentifier": "t_struct$_Choice_$1733_storage",
+                                  "typeString": "struct VoteLibrary.Choice storage ref"
                                 }
                               },
                               "functionReturnParameters": 1742,
                               "id": 1768,
                               "nodeType": "Return",
-                              "src": "408:14:2"
+                              "src": "419:14:2"
                             }
                           ]
                         }
@@ -1054,7 +1054,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1744,
-                      "src": "305:1:2",
+                      "src": "316:1:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1071,27 +1071,27 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1738,
-                        "src": "307:4:2",
+                        "src": "318:4:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Choice_$1733_memory_$dyn_memory_ptr",
-                          "typeString": "struct VoteLibrary.Choice memory[] memory"
+                          "typeIdentifier": "t_array$_t_struct$_Choice_$1733_storage_$dyn_storage_ptr",
+                          "typeString": "struct VoteLibrary.Choice storage ref[] storage pointer"
                         }
                       },
                       "id": 1749,
                       "isConstant": false,
-                      "isLValue": false,
+                      "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "length",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "307:11:2",
+                      "src": "318:11:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "305:13:2",
+                    "src": "316:13:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1109,7 +1109,7 @@
                         "name": "i",
                         "nodeType": "VariableDeclaration",
                         "scope": 1774,
-                        "src": "295:6:2",
+                        "src": "306:6:2",
                         "stateVariable": false,
                         "storageLocation": "default",
                         "typeDescriptions": {
@@ -1120,7 +1120,7 @@
                           "id": 1743,
                           "name": "uint",
                           "nodeType": "ElementaryTypeName",
-                          "src": "295:4:2",
+                          "src": "306:4:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -1141,7 +1141,7 @@
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "302:1:2",
+                      "src": "313:1:2",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
@@ -1150,7 +1150,7 @@
                       "value": "0"
                     },
                     "nodeType": "VariableDeclarationStatement",
-                    "src": "295:8:2"
+                    "src": "306:8:2"
                   },
                   "loopExpression": {
                     "expression": {
@@ -1163,7 +1163,7 @@
                       "nodeType": "UnaryOperation",
                       "operator": "++",
                       "prefix": false,
-                      "src": "320:3:2",
+                      "src": "331:3:2",
                       "subExpression": {
                         "argumentTypes": null,
                         "id": 1751,
@@ -1171,7 +1171,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1744,
-                        "src": "320:1:2",
+                        "src": "331:1:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1184,10 +1184,10 @@
                     },
                     "id": 1753,
                     "nodeType": "ExpressionStatement",
-                    "src": "320:3:2"
+                    "src": "331:3:2"
                   },
                   "nodeType": "ForStatement",
-                  "src": "291:156:2"
+                  "src": "302:156:2"
                 }
               ]
             },
@@ -1195,7 +1195,7 @@
             "id": 1774,
             "implemented": true,
             "isConstructor": false,
-            "isDeclaredConst": true,
+            "isDeclaredConst": false,
             "modifiers": [],
             "name": "StringIsInList",
             "nodeType": "FunctionDefinition",
@@ -1235,12 +1235,12 @@
                   "name": "list",
                   "nodeType": "VariableDeclaration",
                   "scope": 1774,
-                  "src": "236:13:2",
+                  "src": "236:21:2",
                   "stateVariable": false,
-                  "storageLocation": "default",
+                  "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Choice_$1733_memory_$dyn_memory_ptr",
-                    "typeString": "struct VoteLibrary.Choice memory[] memory"
+                    "typeIdentifier": "t_array$_t_struct$_Choice_$1733_storage_$dyn_storage_ptr",
+                    "typeString": "struct VoteLibrary.Choice storage ref[] storage pointer"
                   },
                   "typeName": {
                     "baseType": {
@@ -1268,7 +1268,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "221:29:2"
+              "src": "221:37:2"
             },
             "payable": false,
             "returnParameters": {
@@ -1281,12 +1281,12 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 1774,
-                  "src": "273:6:2",
+                  "src": "276:6:2",
                   "stateVariable": false,
-                  "storageLocation": "default",
+                  "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Choice_$1733_memory_ptr",
-                    "typeString": "struct VoteLibrary.Choice memory"
+                    "typeIdentifier": "t_struct$_Choice_$1733_storage_ptr",
+                    "typeString": "struct VoteLibrary.Choice storage pointer"
                   },
                   "typeName": {
                     "contractScope": null,
@@ -1294,7 +1294,7 @@
                     "name": "Choice",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 1733,
-                    "src": "273:6:2",
+                    "src": "276:6:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_Choice_$1733_storage_ptr",
                       "typeString": "struct VoteLibrary.Choice storage pointer"
@@ -1304,20 +1304,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "272:8:2"
+              "src": "275:16:2"
             },
             "scope": 1775,
-            "src": "198:288:2",
-            "stateMutability": "pure",
+            "src": "198:299:2",
+            "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
         "scope": 1776,
-        "src": "69:420:2"
+        "src": "69:431:2"
       }
     ],
-    "src": "0:489:2"
+    "src": "0:500:2"
   },
   "compiler": {
     "name": "solc",
@@ -1325,5 +1325,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-13T04:23:23.934Z"
+  "updatedAt": "2018-04-15T04:02:53.938Z"
 }

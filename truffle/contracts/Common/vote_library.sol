@@ -9,7 +9,7 @@ library VoteLibrary {
         int numVote;
         
     }
-    function StringIsInList(string  self, Choice[] list) internal pure returns(Choice) {
+    function StringIsInList(string  self, Choice[] storage list) internal returns(Choice storage) {
         for(uint i=0; i<list.length; i++) {
             if (list[i].name.toSlice().equals(self.toSlice())) {
                 return list[i];
