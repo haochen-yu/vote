@@ -1,0 +1,27 @@
+{
+  "name": "vote",
+  "version": "1.0.0",
+  "description": "",
+  "main": "testcompiler.js",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "express": "^4.16.3",
+    "mocha": "^5.1.0",
+    "truffle-artifactor": "^3.0.4",
+    "truffle-contract": "^3.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haochen-yu/vote.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haochen-yu/vote/issues"
+  },
+  "homepage": "https://github.com/haochen-yu/vote#readme"
+}
