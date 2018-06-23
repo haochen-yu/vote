@@ -3,6 +3,9 @@ import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
 import Input from '../input/Input';
 
+// CSS
+import './PollDetails.css';
+
 class PollDetails extends Component {
     render() {
         const { handleSubmit, previousPage } = this.props; 

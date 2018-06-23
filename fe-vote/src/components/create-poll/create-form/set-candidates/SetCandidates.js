@@ -3,57 +3,64 @@ import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
 import Input from '../input/Input';
 
-const MAX_NUM_OF_CONTESTANTS = 10;
+// CSS
+import './SetCandidates.css';
+
+// Maximum number of candidates
+const MAX_NUM_OF_CANDIDATES = 10;
 
 class SetCandidates extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            numOfContestants: 0
+            numOfCandidates: 0
         };
 
-        this.addContestant = this.addContestant.bind(this);
-        this.removeContestant = this.removeContestant.bind(this);
+        this.addCandidate = this.addCandidate.bind(this);
+        this.removeCandidate = this.removeCandidate.bind(this);
     }
 
-    addContestant() {
-        if (this.state.numOfContestants < 10) {
+    // increments the number of candidates by 1
+    addCandidate() {
+        if (this.state.numOfCandidates < MAX_NUM_OF_CANDIDATES) {
             this.setState({
-                numOfContestants: this.state.numOfContestants + 1
+                numOfCandidates: this.state.numOfCandidates + 1
             });
         }
     }
 
-    removeContestant() {
-        if (this.state.numOfContestants > 0) {
+    // decrements the number of candiates by 1
+    removeCandidate() {
+        if (this.state.numOfCandidates > 0) {
             this.setState({
-                numOfContestants: this.state.numOfContestants - 1
+                numOfCandidates: this.state.numOfCandidates - 1
             });
         }   
     }
 
     render() {
         const { onSubmit, previousPage, pristine, submitting } = this.props;
-        const { numOfContestants } = this.state;
-        let contestantArray = [];
+        const { numOfCandidates } = this.state;
+        let candidateArray = [];
 
-        for (let i = 0; i < numOfContestants; i++) {
-            contestantArray.push(
+        // creates the candidate inputs depending on the number set
+        for (let i = 0; i < numOfCandidates; i++) {
+            candidateArray.push(
                 <div key={i}>
-                    <Field name={"contestant-" + i} component={Input} label={"Contestant Name"} />
+                    <Field name={"Candidate-" + i} component={Input} label={"Candidate Name"} />
                 </div>
             );
         }
 
         return(
             <form onSubmit={onSubmit}>
-                <button type="button" onClick={this.addContestant} disabled={numOfContestants >= MAX_NUM_OF_CONTESTANTS}>Add Contestant</button><br />
-                <button type="button" onClick={this.removeContestant} disabled={numOfContestants < 1}>Remove Contestant</button><br />
-                {contestantArray}
+                <button type="button" onClick={this.addCandidate} disabled={numOfCandidates >= MAX_NUM_OF_CANDIDATES}>Add Candidate</button><br />
+                <button type="button" onClick={this.removeCandidate} disabled={numOfCandidates < 1}>Remove Candidate</button><br />
+                {candidateArray}
                 <div>
                     <button type="button" className="previous" onClick={previousPage}>Previous</button>
-                    <button type="submit" className="next" disabled={numOfContestants < 1 || (pristine || submitting)}>Submit</button>
+                    <button type="submit" className="next" disabled={numOfCandidates < 1 || (pristine || submitting)}>Submit</button>
                 </div>
             </form>
         );

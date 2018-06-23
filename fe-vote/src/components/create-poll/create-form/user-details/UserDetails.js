@@ -3,6 +3,9 @@ import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
 import Input from '../input/Input';
 
+// CSS
+import './UserDetails.css';
+
 class UserDetails extends Component {
     render() {
         const { handleSubmit } = this.props; 
