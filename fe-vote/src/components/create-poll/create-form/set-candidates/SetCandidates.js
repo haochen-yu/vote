@@ -1,6 +1,7 @@
 // Dependancies
 import React, {Component} from 'react';
-import { Field, reduxForm, change, untouch, unregisterField } from 'redux-form';
+import { connect } from 'react-redux';
+import { Field, reduxForm, change, untouch, unregisterField, formValueSelector } from 'redux-form';
 import Input from '../input/Input';
 
 // Validation
@@ -12,30 +13,19 @@ import './SetCandidates.css';
 // Maximum number of candidates
 const MAX_NUM_OF_CANDIDATES = 10;
 
+const selector = formValueSelector('createPollForm');
+
 class SetCandidates extends Component {
     constructor(props) {
         super(props);
+        const { numOfCandidates } = props;
 
         this.state = {
-            numOfCandidates: 0
+            numOfCandidates
         };
-        
-        // set initial amount of candidates
-        this.props.dispatch(change('createPollForm', 'numOfCandidates', this.state.numOfCandidates));
 
         this.addCandidate = this.addCandidate.bind(this);
         this.removeCandidate = this.removeCandidate.bind(this);
-    }
-
-    componentWillUnmount() {
-        const { dispatch } = this.props;
-        const { numOfCandidates } = this.state;
-
-        for (let i = 0; i < numOfCandidates; i++) {
-            dispatch(change('createPollForm', 'candidate-' + (i), null));
-            dispatch(untouch('createPollForm', 'candidate-' + (i)));
-            unregisterField('createPollForm', 'candidate-' + (i));
-        }
     }
 
     // increments the number of candidates by 1
@@ -110,6 +100,13 @@ SetCandidates = reduxForm({
     destroyOnUnmount: false,
     forceUnregisterOnUnmount: true,
     validate: validation
+})(SetCandidates);
+
+SetCandidates = connect(state => {
+    const numOfCandidates = selector(state, 'numOfCandidates');
+    return {
+        numOfCandidates: numOfCandidates || 0
+    }
 })(SetCandidates);
 
 export default SetCandidates;
