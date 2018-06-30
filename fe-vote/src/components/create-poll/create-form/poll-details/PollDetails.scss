@@ -1,0 +1,25 @@
+.PollDetails-section {
+    width: calc(304px + 2rem);
+    margin: auto;
+
+    .description-label-wrapper {
+        text-align: left;
+    }
+
+    .description-textarea {
+        width: 300px;
+        height: 5.6rem !important;
+        resize: none;
+        padding: .5rem 1rem;
+        border: 2px #002366 solid;
+
+        &:focus, &:active {
+            outline: none;
+            border-color: #3284BF;
+        }
+    }
+
+    .button-wrapper {
+        margin-top: 1.5rem;
+    }
+}

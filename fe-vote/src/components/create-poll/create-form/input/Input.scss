@@ -1,0 +1,35 @@
+.Input-wrapper {
+    width: calc(304px + 2rem);
+    margin: auto;
+
+    .label-wrapper {
+        text-align: left;
+    }
+
+    .text-input {
+        height: 1rem;
+        width: 300px;
+        padding: .5rem 1rem;
+        border: 2px #002366 solid;
+
+        &:focus, &:active {
+            outline: none;
+            border-color: #3284BF;
+        }
+    }
+
+    .text-error {
+        background-color: #FF9494;
+        border-color: #EB333D;
+    }
+
+    .error-wrapper {
+        text-align: left;
+        height: 1.5rem;
+    }
+
+    .error {     
+        font-size: 0.75rem;
+        color: #EB333D;
+    }
+}

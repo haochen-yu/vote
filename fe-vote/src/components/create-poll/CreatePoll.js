@@ -11,13 +11,14 @@ import CreateForm from './create-form/CreateForm';
 class CreatePoll extends Component {
 
     handleSubmit(values) {
+        console.log(values);
         axios.get('http://localhost:3001/recievemessage');
     }
 
     render() {
         return(
             <section className="Index-section">
-                <CreateForm onSubmit={ this.handleSubmit } />
+                <CreateForm handleSubmit={ this.handleSubmit } />
             </section>
         );
     }

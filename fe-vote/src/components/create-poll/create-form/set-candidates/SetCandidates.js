@@ -1,7 +1,10 @@
 // Dependancies
 import React, {Component} from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, change, untouch, unregisterField } from 'redux-form';
 import Input from '../input/Input';
+
+// Validation
+import validation from '../validation/Validation';
 
 // CSS
 import './SetCandidates.css';
@@ -16,6 +19,9 @@ class SetCandidates extends Component {
         this.state = {
             numOfCandidates: 0
         };
+        
+        // set initial amount of candidates
+        this.props.dispatch(change('createPollForm', 'numOfCandidates', this.state.numOfCandidates));
 
         this.addCandidate = this.addCandidate.bind(this);
         this.removeCandidate = this.removeCandidate.bind(this);
@@ -23,44 +29,63 @@ class SetCandidates extends Component {
 
     // increments the number of candidates by 1
     addCandidate() {
-        if (this.state.numOfCandidates < MAX_NUM_OF_CANDIDATES) {
+        const { dispatch } = this.props;
+        const { numOfCandidates } = this.state;
+
+        if (numOfCandidates < MAX_NUM_OF_CANDIDATES) {
             this.setState({
-                numOfCandidates: this.state.numOfCandidates + 1
+                numOfCandidates: numOfCandidates + 1
             });
+            // update number of candidates
+            dispatch(change('createPollForm', 'numOfCandidates', numOfCandidates + 1));
         }
     }
 
     // decrements the number of candiates by 1
     removeCandidate() {
-        if (this.state.numOfCandidates > 0) {
+        const { dispatch } = this.props;
+        const { numOfCandidates } = this.state;
+
+        if (numOfCandidates > 0) {
+            // remove candidate from redux form
+            dispatch(change('createPollForm', 'candidate-' + (numOfCandidates - 1), null));
+            dispatch(untouch('createPollForm', 'candidate-' + (numOfCandidates - 1)));
+            unregisterField('createPollForm', 'candidate-' + (numOfCandidates - 1));
+            
             this.setState({
-                numOfCandidates: this.state.numOfCandidates - 1
+                numOfCandidates: numOfCandidates - 1
             });
+
+            // update number of candidates
+            dispatch(change('createPollForm', 'numOfCandidates', numOfCandidates - 1));
         }   
     }
 
     render() {
-        const { onSubmit, previousPage, pristine, submitting } = this.props;
+        const { handleSubmit, previousPage, pristine, submitting } = this.props;
         const { numOfCandidates } = this.state;
+        
         let candidateArray = [];
 
         // creates the candidate inputs depending on the number set
         for (let i = 0; i < numOfCandidates; i++) {
             candidateArray.push(
                 <div key={i}>
-                    <Field name={"Candidate-" + i} component={Input} label={"Candidate Name"} />
+                    <Field name={"candidate-" + i} component={Input} placeholder="Candidate Name" />
                 </div>
             );
         }
 
         return(
-            <form onSubmit={onSubmit}>
-                <button type="button" onClick={this.addCandidate} disabled={numOfCandidates >= MAX_NUM_OF_CANDIDATES}>Add Candidate</button><br />
-                <button type="button" onClick={this.removeCandidate} disabled={numOfCandidates < 1}>Remove Candidate</button><br />
+            <form className="SetCandidates-section" onSubmit={handleSubmit}>
+                <div className="candidate-button-wrapper">
+                    <button className="vote-btn left-btn" type="button" onClick={this.addCandidate} disabled={numOfCandidates >= MAX_NUM_OF_CANDIDATES}>Add Candidate</button>
+                    <button className="vote-btn right-btn" type="button" onClick={this.removeCandidate} disabled={numOfCandidates < 1}>Remove Candidate</button>
+                </div>
                 {candidateArray}
                 <div>
-                    <button type="button" className="previous" onClick={previousPage}>Previous</button>
-                    <button type="submit" className="next" disabled={numOfCandidates < 1 || (pristine || submitting)}>Submit</button>
+                    <button className="vote-btn left-btn" type="button" onClick={previousPage}>Previous</button>
+                    <button className="vote-btn right-btn" type="submit" disabled={numOfCandidates < 1 || (pristine || submitting)}>Submit</button>
                 </div>
             </form>
         );
@@ -70,7 +95,8 @@ class SetCandidates extends Component {
 SetCandidates = reduxForm({
     form: 'createPollForm',
     destroyOnUnmount: false,
-    forceUnregisterOnUnmount: true
+    forceUnregisterOnUnmount: true,
+    validate: validation
 })(SetCandidates);
 
 export default SetCandidates;

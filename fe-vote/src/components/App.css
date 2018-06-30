@@ -1,0 +1,28 @@
+/* global css */
+
+/* button css */
+.vote-btn {
+    height: 34px;
+    width: 112px;
+    background-color: #3284BF;
+    border: 1px #3284BF solid;
+    color: #ffffff;
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -o-transition: all 300ms;
+    transition: all 300ms;
+}
+
+.vote-btn:hover {
+    color: #3284BF;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.left-btn {
+    float: left;
+}
+
+.right-btn {
+    float: right;
+}

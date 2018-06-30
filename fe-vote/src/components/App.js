@@ -8,7 +8,7 @@ import {
 // Components
 import Index from './index/Index';
 
-// CSS
+// CSS (global)
 import './App.css';
 
 class App extends Component {

@@ -3,6 +3,9 @@ import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
 import Input from '../input/Input';
 
+// Validation
+import validation from '../validation/Validation';
+
 // CSS
 import './PollDetails.css';
 
@@ -11,14 +14,15 @@ class PollDetails extends Component {
         const { handleSubmit, previousPage } = this.props; 
 
         return(
-            <form onSubmit={handleSubmit}>
-                <Field name="pollName" type="text" component={Input} label="First Name" />
-                <label>Description</label>
-                <Field name="pollDescription" type="text" component="textarea"/>
-                <span>Optional</span>
-                <div>
-                    <button type="button" className="previous" onClick={previousPage}>Previous</button>
-                    <button type="submit" className="next">Next</button>
+            <form className="PollDetails-section" onSubmit={handleSubmit}>
+                <Field label="Poll Name" name="pollName" type="text" component={Input} placeholder="Poll Name" />
+                <div className="description-label-wrapper">
+                    <label>Description (Optional)</label>
+                </div>  
+                <Field className="description-textarea" name="pollDescription" type="text" component="textarea"/>
+                <div className="button-wrapper">
+                    <button className="vote-btn left-btn" type="button" onClick={previousPage}>Previous</button>
+                    <button className="vote-btn right-btn" type="submit">Next</button>
                 </div>
             </form>
         );
@@ -28,7 +32,8 @@ class PollDetails extends Component {
 PollDetails = reduxForm({
     form: 'createPollForm',
     destroyOnUnmount: false,
-    forceUnregisterOnUnmount: true
+    forceUnregisterOnUnmount: true,
+    validate: validation
 })(PollDetails);
 
 export default PollDetails;

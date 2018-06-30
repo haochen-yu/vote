@@ -1,0 +1,5 @@
+.SetCandidates-section {
+  width: calc(304px + 2rem);
+  margin: auto; }
+  .SetCandidates-section .candidate-button-wrapper {
+    height: 3rem; }
