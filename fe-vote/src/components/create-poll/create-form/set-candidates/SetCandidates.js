@@ -27,6 +27,17 @@ class SetCandidates extends Component {
         this.removeCandidate = this.removeCandidate.bind(this);
     }
 
+    componentWillUnmount() {
+        const { dispatch } = this.props;
+        const { numOfCandidates } = this.state;
+
+        for (let i = 0; i < numOfCandidates; i++) {
+            dispatch(change('createPollForm', 'candidate-' + (i), null));
+            dispatch(untouch('createPollForm', 'candidate-' + (i)));
+            unregisterField('createPollForm', 'candidate-' + (i));
+        }
+    }
+
     // increments the number of candidates by 1
     addCandidate() {
         const { dispatch } = this.props;
@@ -38,6 +49,8 @@ class SetCandidates extends Component {
             });
             // update number of candidates
             dispatch(change('createPollForm', 'numOfCandidates', numOfCandidates + 1));
+            // ensures new fields are untouched for error
+            dispatch(untouch('createPollForm', 'candidate-' + numOfCandidates));
         }
     }
 
