@@ -12,6 +12,8 @@ import './SetCandidates.css';
 // Maximum number of candidates
 const MAX_NUM_OF_CANDIDATES = 100;
 
+let scrollToBottom = false;
+
 // redux form selector to set initial number of candidates
 const selector = formValueSelector('createPollForm');
 
@@ -28,6 +30,20 @@ class SetCandidates extends Component {
         this.addCandidate = this.addCandidate.bind(this);
         this.removeCandidate = this.removeCandidate.bind(this);
         this.candidateInputChange = this.candidateInputChange.bind(this);
+        this.scrollToBottom = this.scrollToBottom.bind(this);
+    }
+
+    componentDidUpdate() {
+        // whenever new candidate is added, scroll to bottom
+        if (scrollToBottom) {
+            this.scrollToBottom();
+            scrollToBottom = false;
+        }
+    }
+
+    // scrolls to bottom of candidate list
+    scrollToBottom() {
+        this.messagesEnd.scrollIntoView({behavior: "smooth"});
     }
 
     // increments the number of candidates by 1
@@ -46,6 +62,9 @@ class SetCandidates extends Component {
                 numOfCandidates: numOfCandidates + 1,
                 candidateName: ''
             });
+
+            // let component know to scroll to bottom
+            scrollToBottom = true;
         }
     }
 
@@ -101,6 +120,7 @@ class SetCandidates extends Component {
                 <form onSubmit={handleSubmit}>
                     <ul className="candidate-list">
                         {displayList}
+                        <li className="list-end" ref={(el) => this.messagesEnd = el} />
                     </ul>
                     <div className="wizard-button-wrapper">
                         <button className="vote-btn wizard-left-btn" type="button" onClick={previousPage}>Previous</button>
