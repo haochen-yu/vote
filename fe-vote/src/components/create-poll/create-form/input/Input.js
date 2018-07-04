@@ -5,13 +5,13 @@ import FontAwesome from 'react-fontawesome';
 // CSS
 import './Input.css';
 
-const inputField = ({ label, input, type, placeholder, autoComplete, meta: { touched, error } }) => (
-    <div className="Input-wrapper">
+const inputField = ({ label, input, type, placeholder, autoComplete, width, meta: { touched, error } }) => (
+    <div className="Input-wrapper" style={{ width: `${width}px` }}>
       <div className="label-wrapper">
-        <label className="label">{label}</label>
+        <label className="input-label">{label}</label>
       </div>
       <div>
-        <input className={`text-input ${(touched && error) ? 'text-error' : ''}`} {...input} placeholder={placeholder} type={type} autoComplete={autoComplete} />
+        <input className={`text-input ${(touched && error) ? 'text-error' : ''}`} {...input} placeholder={placeholder} type={type} autoComplete={autoComplete} style={{ width: `${width}px` }} />
       </div>
       <div className="error-wrapper">
        {touched && error && <span className="error"><FontAwesome name="exclamation-circle" /> {error}</span>}

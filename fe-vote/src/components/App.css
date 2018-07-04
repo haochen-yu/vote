@@ -2,8 +2,8 @@
 
 /* button css */
 .vote-btn {
-    height: 34px;
-    width: 112px;
+    height: 40px;
+    width: 120px;
     background-color: #3284BF;
     border: 1px #3284BF solid;
     color: #ffffff;
@@ -19,10 +19,33 @@
     cursor: pointer;
 }
 
-.left-btn {
-    float: left;
+.vote-btn:disabled {
+    background-color: #C0C0C0;
+    border-color: #C0C0C0;
 }
 
-.right-btn {
+.vote-btn:hover:disabled {
+    background-color: #C0C0C0;
+    border-color: #C0C0C0;
+    color: #ffffff;
+    cursor: not-allowed;
+}
+
+.wizard-left-btn {
+    float: left;
+    margin-bottom: 5vh;
+    margin-left: 5vw;
+}
+
+.wizard-right-btn {
     float: right;
+    margin-bottom: 5vh;
+    margin-right: 5vw;
+}
+
+.wizard-button-wrapper {
+    position:fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }

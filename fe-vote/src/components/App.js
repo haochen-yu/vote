@@ -7,6 +7,7 @@ import {
 
 // Components
 import Index from './index/Index';
+import Navbar from './navbar/Navbar';
 
 // CSS (global)
 import './App.css';
@@ -14,11 +15,14 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <Router>
-        <Route exact path='/' render={(props) => (
-          <Index />
-        )} />
-      </Router>
+      <div>
+        <Navbar />
+        <Router>
+          <Route exact path='/' render={(props) => (
+            <Index />
+          )} />
+        </Router>
+      </div>
     );
   }
 }

@@ -1,5 +1,42 @@
-.SetCandidates-section {
-  width: calc(304px + 2rem);
-  margin: auto; }
-  .SetCandidates-section .candidate-button-wrapper {
-    height: 3rem; }
+.SetCandidates-section .title {
+  font-size: 2rem; }
+
+.SetCandidates-section .add-candidate-button {
+  margin-left: 20px;
+  width: 140px; }
+
+.SetCandidates-section .candidate-input {
+  height: 41px;
+  width: 320px;
+  padding: .5rem 1rem;
+  border: 2px #002366 solid; }
+  .SetCandidates-section .candidate-input:focus, .SetCandidates-section .candidate-input:active {
+    outline: none;
+    border-color: #3284BF; }
+
+.SetCandidates-section .candidate-list {
+  width: 480px;
+  height: 50vh;
+  padding: 0;
+  margin: 5vh auto 0 auto;
+  list-style: none;
+  border: 1px #000000 solid;
+  text-align: left;
+  overflow-y: scroll; }
+  .SetCandidates-section .candidate-list::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px; }
+  .SetCandidates-section .candidate-list::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5); }
+
+.SetCandidates-section .candidate-list-item {
+  clear: both;
+  margin-bottom: 1rem; }
+
+.SetCandidates-section .candidate-name {
+  margin-left: 15px; }
+
+.SetCandidates-section .remove-candidate-button {
+  float: right;
+  margin-right: 15px; }

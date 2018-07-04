@@ -17,7 +17,7 @@ class CreatePoll extends Component {
 
     render() {
         return(
-            <section className="Index-section">
+            <section className="CreatePoll-section">
                 <CreateForm handleSubmit={ this.handleSubmit } />
             </section>
         );

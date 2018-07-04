@@ -1,3 +1,5 @@
 .UserDetails-section {
-  width: calc(304px + 2rem);
+  width: 400px;
   margin: auto; }
+  .UserDetails-section .title {
+    font-size: 2rem; }

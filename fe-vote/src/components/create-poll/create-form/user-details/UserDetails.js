@@ -14,14 +14,21 @@ class UserDetails extends Component {
         const { handleSubmit } = this.props; 
 
         return(
-            <form className="UserDetails-section" onSubmit={handleSubmit}>
-                <Field label="First Name:" name="firstName" type="text" component={Input} placeholder="First Name" autoComplete="first-name" />
-                <Field label="Last Name:" name="lastName" type="text" component={Input} placeholder="Last Name" autoComplete="family-name" />
-                <Field label="Organization (Optional):" name="organization" type="text" component={Input} placeholder="Organization" autoComplete="organization" />
-                <div className="button-wrapper">
-                    <button className="vote-btn right-btn" type="submit">Next</button>
+            <section className="UserDetails-section">
+                <div>
+                    <h1 className="title">User Details</h1>
                 </div>
-            </form>
+                <form onSubmit={handleSubmit}>
+                    <div className="field-section">
+                        <Field label="First Name:" name="firstName" type="text" component={Input} placeholder="Required" autoComplete="first-name" />
+                        <Field label="Last Name:" name="lastName" type="text" component={Input} placeholder="Required" autoComplete="family-name" />
+                        <Field label="Organization:" name="organization" type="text" component={Input} placeholder="Optional" autoComplete="organization" /> 
+                    </div>
+                    <div className="wizard-button-wrapper">
+                        <button className="vote-btn wizard-right-btn" type="submit">Next</button>
+                    </div>
+                </form>
+            </section>
         );
     }
 }

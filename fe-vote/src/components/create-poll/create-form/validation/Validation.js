@@ -13,13 +13,6 @@ const validation = values => {
     if (!values.pollName) {
         errors.pollName = 'Required';
     }
-
-    // set required for number of candidate fields
-    for (let i = 0; i < values.numOfCandidates; i++) {
-        if (!values['candidate-' + i]) {
-            errors['candidate-' + i] = 'Required';
-        }
-    }
     
     return errors;
 };

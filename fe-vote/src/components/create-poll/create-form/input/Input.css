@@ -1,11 +1,11 @@
 .Input-wrapper {
-  width: calc(304px + 2rem);
+  width: 400px;
   margin: auto; }
   .Input-wrapper .label-wrapper {
     text-align: left; }
   .Input-wrapper .text-input {
-    height: 1rem;
-    width: 300px;
+    height: 4rem;
+    width: 400px;
     padding: .5rem 1rem;
     border: 2px #002366 solid; }
     .Input-wrapper .text-input:focus, .Input-wrapper .text-input:active {
@@ -16,7 +16,7 @@
     border-color: #EB333D; }
   .Input-wrapper .error-wrapper {
     text-align: left;
-    height: 1.5rem; }
+    height: 2rem; }
   .Input-wrapper .error {
-    font-size: 0.75rem;
+    font-size: 1rem;
     color: #EB333D; }

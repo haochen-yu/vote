@@ -14,17 +14,22 @@ class PollDetails extends Component {
         const { handleSubmit, previousPage } = this.props; 
 
         return(
-            <form className="PollDetails-section" onSubmit={handleSubmit}>
-                <Field label="Poll Name" name="pollName" type="text" component={Input} placeholder="Poll Name" />
-                <div className="description-label-wrapper">
-                    <label>Description (Optional)</label>
-                </div>  
-                <Field className="description-textarea" name="pollDescription" type="text" component="textarea"/>
-                <div className="button-wrapper">
-                    <button className="vote-btn left-btn" type="button" onClick={previousPage}>Previous</button>
-                    <button className="vote-btn right-btn" type="submit">Next</button>
+            <section className="PollDetails-section">
+                <div>
+                    <h1 className="title">Poll Details</h1>
                 </div>
-            </form>
+                <form onSubmit={handleSubmit}>
+                    <Field label="Poll Name:" name="pollName" type="text" component={Input} placeholder="Required" />
+                    <div className="description-label-wrapper">
+                        <label>Description:</label>
+                    </div>  
+                    <Field className="description-textarea" name="pollDescription" type="text" component="textarea" placeholder="Optional" />
+                    <div className="wizard-button-wrapper">
+                        <button className="vote-btn wizard-left-btn" type="button" onClick={previousPage}>Previous</button>
+                        <button className="vote-btn wizard-right-btn" type="submit">Next</button>
+                    </div>
+                </form>
+            </section>
         );
     }
 }

@@ -1,5 +1,5 @@
 .Input-wrapper {
-    width: calc(304px + 2rem);
+    width: 400px;
     margin: auto;
 
     .label-wrapper {
@@ -7,8 +7,8 @@
     }
 
     .text-input {
-        height: 1rem;
-        width: 300px;
+        height: 4rem;
+        width: 400px;
         padding: .5rem 1rem;
         border: 2px #002366 solid;
 
@@ -25,11 +25,11 @@
 
     .error-wrapper {
         text-align: left;
-        height: 1.5rem;
+        height: 2rem;
     }
 
     .error {     
-        font-size: 0.75rem;
+        font-size: 1rem;
         color: #EB333D;
     }
 }
