@@ -65,6 +65,7 @@ class SetCandidates extends Component {
         dispatch(change('createPollForm', 'numOfCandidates', numOfCandidates - 1));
     }
 
+    // handles the user input on the add candidate input
     candidateInputChange(event) {
         this.setState({
             candidateName: event.target.value
@@ -77,7 +78,7 @@ class SetCandidates extends Component {
 
         let displayList = [];
 
-        // creates the candidate inputs depending on the number set
+        // creates the candidate list depending on the number of candidates
         for (let i = 0; i < numOfCandidates; i++) {
             displayList.push(
                 <li className="candidate-list-item" key={ i }>
