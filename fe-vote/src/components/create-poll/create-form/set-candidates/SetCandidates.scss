@@ -6,6 +6,12 @@
     .add-candidate-button {
         margin-left: 20px;
         width: 140px;
+
+        @media screen and (max-width: 480px) {
+            width: 90%;
+            margin-left: 0;
+           
+        }
     }
 
     .candidate-input {
@@ -17,6 +23,10 @@
         &:focus, &:active {
             outline: none;
             border-color: #3284BF;
+        }
+
+        @media screen and (max-width: 480px) {
+            width: 90%;
         }
     }
 
@@ -38,6 +48,10 @@
         &::-webkit-scrollbar-thumb {
             border-radius: 5px;
             background-color: rgba(0,0,0,.5);
+        }
+
+        @media screen and (max-width: 480px) {
+            width: 90%;
         }
     }
     

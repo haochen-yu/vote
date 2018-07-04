@@ -1,16 +1,22 @@
 .Input-wrapper {
-  width: 400px;
+  width: 460px;
   margin: auto; }
+  @media screen and (max-width: 480px) {
+    .Input-wrapper {
+      width: 100%; } }
   .Input-wrapper .label-wrapper {
     text-align: left; }
   .Input-wrapper .text-input {
     height: 4rem;
-    width: 400px;
+    width: 460px;
     padding: .5rem 1rem;
     border: 2px #002366 solid; }
     .Input-wrapper .text-input:focus, .Input-wrapper .text-input:active {
       outline: none;
       border-color: #3284BF; }
+    @media screen and (max-width: 480px) {
+      .Input-wrapper .text-input {
+        width: 100%; } }
   .Input-wrapper .text-error {
     background-color: #FF9494;
     border-color: #EB333D; }

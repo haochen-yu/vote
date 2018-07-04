@@ -4,6 +4,10 @@
 .SetCandidates-section .add-candidate-button {
   margin-left: 20px;
   width: 140px; }
+  @media screen and (max-width: 480px) {
+    .SetCandidates-section .add-candidate-button {
+      width: 90%;
+      margin-left: 0; } }
 
 .SetCandidates-section .candidate-input {
   height: 41px;
@@ -13,6 +17,9 @@
   .SetCandidates-section .candidate-input:focus, .SetCandidates-section .candidate-input:active {
     outline: none;
     border-color: #3284BF; }
+  @media screen and (max-width: 480px) {
+    .SetCandidates-section .candidate-input {
+      width: 90%; } }
 
 .SetCandidates-section .candidate-list {
   width: 480px;
@@ -29,6 +36,9 @@
   .SetCandidates-section .candidate-list::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.5); }
+  @media screen and (max-width: 480px) {
+    .SetCandidates-section .candidate-list {
+      width: 90%; } }
 
 .SetCandidates-section .candidate-list-item {
   clear: both;

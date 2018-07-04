@@ -1,2 +1,5 @@
 .CreatePoll-section {
   margin-top: 10vh; }
+  @media screen and (max-width: 480px) {
+    .CreatePoll-section {
+      margin-top: 5vh; } }

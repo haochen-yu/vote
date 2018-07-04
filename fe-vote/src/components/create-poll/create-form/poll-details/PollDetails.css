@@ -1,12 +1,15 @@
 .PollDetails-section {
-  width: 400px;
+  width: 460px;
   margin: auto; }
+  @media screen and (max-width: 480px) {
+    .PollDetails-section {
+      width: 85%; } }
   .PollDetails-section .title {
     font-size: 2rem; }
   .PollDetails-section .description-label-wrapper {
     text-align: left; }
   .PollDetails-section .description-textarea {
-    width: 400px;
+    width: 460px;
     height: 5.6rem !important;
     resize: none;
     padding: .5rem 1rem;
@@ -14,5 +17,8 @@
     .PollDetails-section .description-textarea:focus, .PollDetails-section .description-textarea:active {
       outline: none;
       border-color: #3284BF; }
+    @media screen and (max-width: 480px) {
+      .PollDetails-section .description-textarea {
+        width: 100%; } }
   .PollDetails-section .button-wrapper {
     margin-top: 1.5rem; }
