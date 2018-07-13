@@ -10,8 +10,21 @@ import validation from '../validation/Validation';
 import './UserDetails.css';
 
 class UserDetails extends Component {
+    constructor(props) {
+        super(props);
+
+        this.firstNameInput = React.createRef();
+    }
+
+    componentDidMount() {
+        // focus on the first input if there is no value there (used for UI on first load)
+        if (this.firstNameInput.current.value === '') {
+            this.firstNameInput.current.focus();
+        }
+    }
+
     render() {
-        const { handleSubmit } = this.props; 
+        const { handleSubmit } = this.props;
 
         return(
             <section className="UserDetails-section">
@@ -20,7 +33,7 @@ class UserDetails extends Component {
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div className="field-section">
-                        <Field label="First Name:" name="firstName" type="text" component={Input} placeholder="Required" autoComplete="first-name" />
+                        <Field label="First Name:" name="firstName" type="text" component={Input} placeholder="Required" autoComplete="first-name" inputRef={this.firstNameInput} />
                         <Field label="Last Name:" name="lastName" type="text" component={Input} placeholder="Required" autoComplete="family-name" />
                         <Field label="Organization:" name="organization" type="text" component={Input} placeholder="Optional" autoComplete="organization" /> 
                     </div>

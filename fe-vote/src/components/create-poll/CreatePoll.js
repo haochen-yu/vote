@@ -11,8 +11,7 @@ import CreateForm from './create-form/CreateForm';
 class CreatePoll extends Component {
 
     handleSubmit(values) {
-        console.log(values);
-        axios.get('http://localhost:3001/recievemessage');
+        axios.post('http://localhost:3001/api/createpoll', values);
     }
 
     render() {

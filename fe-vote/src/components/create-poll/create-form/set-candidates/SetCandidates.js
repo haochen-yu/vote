@@ -27,10 +27,16 @@ class SetCandidates extends Component {
             candidateName: ''
         };
 
+        this.addCandidateInput = React.createRef();
         this.addCandidate = this.addCandidate.bind(this);
         this.removeCandidate = this.removeCandidate.bind(this);
         this.candidateInputChange = this.candidateInputChange.bind(this);
         this.scrollToBottom = this.scrollToBottom.bind(this);
+    }
+
+    componentDidMount() {
+        // focus on add candidate input for UI
+        this.addCandidateInput.current.focus();
     }
 
     componentDidUpdate() {
@@ -113,7 +119,7 @@ class SetCandidates extends Component {
                 </div>
                 <div className="candidate-input-wrapper">
                     <form onSubmit={this.addCandidate }>
-                        <input className="candidate-input" value={ this.state.candidateName } onChange={ this.candidateInputChange } type="text" placeholder="Candidate Name" />
+                        <input className="candidate-input" value={ this.state.candidateName } onChange={ this.candidateInputChange } type="text" placeholder="Candidate Name" ref={this.addCandidateInput} />
                         <button className="vote-btn add-candidate-button" type="submit" disabled={this.state.candidateName === '' || numOfCandidates >= MAX_NUM_OF_CANDIDATES}>Add</button>
                     </form>
                 </div>

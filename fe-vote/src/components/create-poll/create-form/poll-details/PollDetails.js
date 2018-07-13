@@ -10,6 +10,18 @@ import validation from '../validation/Validation';
 import './PollDetails.css';
 
 class PollDetails extends Component {
+    constructor(props) {
+        super(props);
+
+        this.pollNameInput = React.createRef();
+    }
+
+    componentDidMount() {
+        // focus on the first input if there is no value there (used for UI on first load)
+        if (this.pollNameInput.current.value === '') {
+            this.pollNameInput.current.focus();
+        }
+    }
     render() {
         const { handleSubmit, previousPage } = this.props; 
 
@@ -19,7 +31,7 @@ class PollDetails extends Component {
                     <h1 className="title">Poll Details</h1>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <Field label="Poll Name:" name="pollName" type="text" component={Input} placeholder="Required" />
+                    <Field label="Poll Name:" name="pollName" type="text" component={Input} placeholder="Required" inputRef={this.pollNameInput} />
                     <div className="description-label-wrapper">
                         <label>Description:</label>
                     </div>  
