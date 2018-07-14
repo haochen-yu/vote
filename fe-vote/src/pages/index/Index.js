@@ -5,13 +5,15 @@ import React, { Component } from 'react';
 import './Index.css';
 
 // components
-import CreatePoll from '../create-poll/CreatePoll';
+import Navbar from '../../components/navbar/Navbar';
+import Landing from './landing/Landing';
 
 class Index extends Component {
     render() {
         return(
             <section className="Index-section">
-                <CreatePoll />
+                <Navbar />
+                <Landing />
             </section>
         );
     }

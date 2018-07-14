@@ -1,7 +1,9 @@
 // Dependancies
 import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
-import Input from '../input/Input';
+
+// Components
+import Input from '../../../../components/input/Input';
 
 // Validation
 import validation from '../validation/Validation';

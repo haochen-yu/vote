@@ -2,12 +2,12 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
-  Route,
+  Route
 } from 'react-router-dom';
 
 // Components
-import Index from './index/Index';
-import Navbar from './navbar/Navbar';
+import Index from './pages/index/Index';
+import Login from './pages/login/Login';
 
 // CSS (global)
 import './App.css';
@@ -16,10 +16,14 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar />
         <Router>
           <Route exact path='/' render={(props) => (
             <Index />
+          )} />
+        </Router>
+        <Router>
+          <Route exact path='/login' render={(props) => (
+            <Login />
           )} />
         </Router>
       </div>

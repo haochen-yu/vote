@@ -1,0 +1,10 @@
+.LoginForm-section {
+  width: 460px;
+  margin: auto; }
+  @media screen and (max-width: 480px) {
+    .LoginForm-section {
+      width: 85%; } }
+  .LoginForm-section .login-button-wrapper {
+    margin-top: 2rem; }
+  .LoginForm-section .login-button {
+    float: right; }
