@@ -8,12 +8,14 @@ import './Index.css';
 import Navbar from '../../components/navbar/Navbar';
 import Landing from './landing/Landing';
 
-class Index extends Component {
+class Banner extends Component {
     render() {
         return(
-            <section className="Index-section">
-                <Navbar />
-                <Landing />
+            <section className="Banner-section">
+                <h1 className="header">This is a Youtube Banner</h1>
+                <p className="">
+                    Welcome to my Youtube Channel. Please subscribe and ring the notification bell!<br />
+                </p>
             </section>
         );
     }

@@ -35,9 +35,9 @@ class UserDetails extends Component {
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div className="field-section">
-                        <Field label="First Name:" name="firstName" type="text" component={Input} placeholder="Required" autoComplete="first-name" inputRef={this.firstNameInput} />
-                        <Field label="Last Name:" name="lastName" type="text" component={Input} placeholder="Required" autoComplete="family-name" />
-                        <Field label="Organization:" name="organization" type="text" component={Input} placeholder="Optional" autoComplete="organization" /> 
+                        <Field label="First Name:" name="firstName" type="text" component={ Input } placeholder="Required" autoComplete="first-name" inputRef={this.firstNameInput} />
+                        <Field label="Last Name:" name="lastName" type="text" component={ Input } placeholder="Required" autoComplete="family-name" />
+                        <Field label="Organization:" name="organization" type="text" component={ Input } placeholder="Optional" autoComplete="organization" /> 
                     </div>
                     <div className="wizard-button-wrapper">
                         <button className="vote-btn wizard-right-btn" type="submit">Next</button>

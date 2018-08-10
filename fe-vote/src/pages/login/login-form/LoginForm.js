@@ -10,22 +10,22 @@ import Input from '../../../components/input/Input';
 
 class LoginForm extends Component {
     render() {
-        const { handleSubmit } = this.props;
+        const { handleSubmit, pristine, submitting } = this.props;
+
+        console.log(this.props);
 
         return(
-            <section className="LoginForm-section">
-                <form onSubmit={handleSubmit}>
-                    <div className="email-wrapper">
-                        <Field name="email" type="text" component={Input} placeholder="Email" autoComplete="email" />
-                    </div>
-                    <div className="password-wrapper">
-                        <Field name="email" type="password" component={Input} placeholder="Password" autoComplete="password" />
-                    </div>
-                    <div className="login-button-wrapper">
-                        <button className="vote-btn login-button" type="submit">Login</button>
-                    </div>
-                </form>
-            </section>
+            <form className="LoginForm-section" onSubmit={ handleSubmit }>
+                <div className="email-wrapper">
+                    <Field name="email" type="text" component={ Input } placeholder="Email" autoComplete="email" />
+                </div>
+                <div className="password-wrapper">
+                    <Field name="password" type="password" component={ Input } placeholder="Password" autoComplete="password" />
+                </div>
+                <div className="login-button-wrapper">
+                    <button className="vote-btn login-button" type="submit" disabled={ pristine || submitting }>Login</button>
+                </div>
+            </form>
         );
     }
 }

@@ -123,7 +123,7 @@ class SetCandidates extends Component {
                         <button className="vote-btn add-candidate-button" type="submit" disabled={this.state.candidateName === '' || numOfCandidates >= MAX_NUM_OF_CANDIDATES}>Add</button>
                     </form>
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={ handleSubmit }>
                     <ul className="candidate-list">
                         {displayList}
                         <li className="list-end" ref={(el) => this.messagesEnd = el} />

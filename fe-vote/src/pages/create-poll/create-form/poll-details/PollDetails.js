@@ -33,7 +33,7 @@ class PollDetails extends Component {
                     <h1 className="title">Poll Details</h1>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <Field label="Poll Name:" name="pollName" type="text" component={Input} placeholder="Required" inputRef={this.pollNameInput} />
+                    <Field label="Poll Name:" name="pollName" type="text" component={ Input } placeholder="Required" inputRef={this.pollNameInput} />
                     <div className="description-label-wrapper">
                         <label>Description:</label>
                     </div>  

@@ -9,7 +9,6 @@ import './CreatePoll.css';
 import CreateForm from './create-form/CreateForm';
 
 class CreatePoll extends Component {
-
     handleSubmit(values) {
         axios.post('http://localhost:3001/api/createpoll', values);
     }
