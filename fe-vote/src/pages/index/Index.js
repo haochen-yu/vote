@@ -2,11 +2,7 @@
 import React, { Component } from 'react';
 
 // CSS
-import './Index.css';
-
-// components
-import Navbar from '../../components/navbar/Navbar';
-import Landing from './landing/Landing';
+import './Banner.css';
 
 class Banner extends Component {
     render() {
@@ -21,4 +17,4 @@ class Banner extends Component {
     }
 }
 
-export default Index;
+export default Banner;
